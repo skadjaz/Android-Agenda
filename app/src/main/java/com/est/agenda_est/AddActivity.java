@@ -1,5 +1,6 @@
 package com.est.agenda_est;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
@@ -14,6 +15,7 @@ public class AddActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add);
+
 
         nome_input = findViewById(R.id.nome_input);
         sobrenome_input = findViewById(R.id.sobrenome_input);

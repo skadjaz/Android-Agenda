@@ -2,6 +2,7 @@ package com.est.agenda_est;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
@@ -13,6 +14,7 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
+import android.os.Build;
 import android.os.Bundle;
 import android.text.Html;
 import android.view.Menu;
@@ -36,13 +38,15 @@ public class MainActivity extends AppCompatActivity {
     Database db;
     ArrayList<String> id,nome,sobrenome,contacto;
     CustomAdapter customAdapter;
+    @RequiresApi(api = Build.VERSION_CODES.M)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
         ActionBar ab = getSupportActionBar();
-        ab.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#FFFFFF")));
-        ab.setTitle(Html.fromHtml("<font color=\"#2699FB\">" + getString(R.string.app_name) + "</font>"));
+
 
         recyclerView = findViewById(R.id.recyclerView);
         add_button = findViewById(R.id.add_button);

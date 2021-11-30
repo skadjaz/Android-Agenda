@@ -35,11 +35,10 @@ public class UpdateActivity extends AppCompatActivity {
         getAndSetIntentData();
 
         ActionBar ab = getSupportActionBar();
-        ab.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#FFFFFF")));
+
 
         if (ab != null){
             ab.setTitle(Html.fromHtml("<font color=\"#2699FB\">" + nome + " " + sobrenome + "</font>"));
-            //ab.setBackgroundDrawable(ColorDrawable);
         }
 
 
