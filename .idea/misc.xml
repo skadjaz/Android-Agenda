@@ -3,8 +3,12 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/luisf/Ambiente de Trabalho/Agenda_EST/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.5703125" />
+        <entry key="..\:/Users/luisf/Ambiente de Trabalho/Agenda_EST/app/src/main/res/drawable/add.xml" value="0.5703125" />
         <entry key="..\:/Users/luisf/Ambiente de Trabalho/Agenda_EST/app/src/main/res/drawable/custom_edit_icon.xml" value="0.5703125" />
         <entry key="..\:/Users/luisf/Ambiente de Trabalho/Agenda_EST/app/src/main/res/drawable/custom_input.xml" value="0.5703125" />
+        <entry key="..\:/Users/luisf/Ambiente de Trabalho/Agenda_EST/app/src/main/res/drawable/custom_input_contacto.xml" value="0.5703125" />
+        <entry key="..\:/Users/luisf/Ambiente de Trabalho/Agenda_EST/app/src/main/res/drawable/custom_input_small.xml" value="0.5703125" />
         <entry key="..\:/Users/luisf/Ambiente de Trabalho/Agenda_EST/app/src/main/res/drawable/custom_phone_icon.xml" value="0.5703125" />
         <entry key="..\:/Users/luisf/Ambiente de Trabalho/Agenda_EST/app/src/main/res/drawable/ic_add.xml" value="0.5703125" />
         <entry key="..\:/Users/luisf/Ambiente de Trabalho/Agenda_EST/app/src/main/res/drawable/ic_arrow_back.xml" value="0.5703125" />
@@ -14,15 +18,27 @@
         <entry key="..\:/Users/luisf/Ambiente de Trabalho/Agenda_EST/app/src/main/res/drawable/ic_baseline_phone_focus.xml" value="0.5703125" />
         <entry key="..\:/Users/luisf/Ambiente de Trabalho/Agenda_EST/app/src/main/res/drawable/ic_border_style.xml" value="0.5703125" />
         <entry key="..\:/Users/luisf/Ambiente de Trabalho/Agenda_EST/app/src/main/res/drawable/ic_delete.xml" value="0.5703125" />
+        <entry key="..\:/Users/luisf/Ambiente de Trabalho/Agenda_EST/app/src/main/res/drawable/ic_edit.xml" value="0.5703125" />
+        <entry key="..\:/Users/luisf/Ambiente de Trabalho/Agenda_EST/app/src/main/res/drawable/ic_menu.xml" value="0.5703125" />
         <entry key="..\:/Users/luisf/Ambiente de Trabalho/Agenda_EST/app/src/main/res/drawable/ic_nodata.xml" value="0.5703125" />
         <entry key="..\:/Users/luisf/Ambiente de Trabalho/Agenda_EST/app/src/main/res/drawable/ic_person.xml" value="0.5703125" />
         <entry key="..\:/Users/luisf/Ambiente de Trabalho/Agenda_EST/app/src/main/res/drawable/ic_search_black_24dp.xml" value="0.5703125" />
+        <entry key="..\:/Users/luisf/Ambiente de Trabalho/Agenda_EST/app/src/main/res/drawable/searchbar.xml" value="0.5703125" />
         <entry key="..\:/Users/luisf/Ambiente de Trabalho/Agenda_EST/app/src/main/res/layout/action_bar.xml" value="0.4010416666666667" />
         <entry key="..\:/Users/luisf/Ambiente de Trabalho/Agenda_EST/app/src/main/res/layout/actionbar.xml" value="0.75" />
         <entry key="..\:/Users/luisf/Ambiente de Trabalho/Agenda_EST/app/src/main/res/layout/activity_add.xml" value="0.5" />
-        <entry key="..\:/Users/luisf/Ambiente de Trabalho/Agenda_EST/app/src/main/res/layout/activity_main.xml" value="0.33" />
+        <entry key="..\:/Users/luisf/Ambiente de Trabalho/Agenda_EST/app/src/main/res/layout/activity_main.xml" value="0.22" />
+        <entry key="..\:/Users/luisf/Ambiente de Trabalho/Agenda_EST/app/src/main/res/layout/activity_update.xml" value="0.33" />
+        <entry key="..\:/Users/luisf/Ambiente de Trabalho/Agenda_EST/app/src/main/res/layout/activity_update2.xml" value="0.25" />
+        <entry key="..\:/Users/luisf/Ambiente de Trabalho/Agenda_EST/app/src/main/res/layout/addsucessfully.xml" value="0.2" />
+        <entry key="..\:/Users/luisf/Ambiente de Trabalho/Agenda_EST/app/src/main/res/layout/addunsucessfully.xml" value="0.25" />
+        <entry key="..\:/Users/luisf/Ambiente de Trabalho/Agenda_EST/app/src/main/res/layout/contacto.xml" value="0.33" />
+        <entry key="..\:/Users/luisf/Ambiente de Trabalho/Agenda_EST/app/src/main/res/layout/editadocomsucesso.xml" value="0.2" />
+        <entry key="..\:/Users/luisf/Ambiente de Trabalho/Agenda_EST/app/src/main/res/layout/editadosemsucesso.xml" value="0.33" />
         <entry key="..\:/Users/luisf/Ambiente de Trabalho/Agenda_EST/app/src/main/res/layout/mainactionbar.xml" value="0.5" />
-        <entry key="..\:/Users/luisf/Ambiente de Trabalho/Agenda_EST/app/src/main/res/layout/row.xml" value="0.5541666666666667" />
+        <entry key="..\:/Users/luisf/Ambiente de Trabalho/Agenda_EST/app/src/main/res/layout/perguntarremover.xml" value="0.33" />
+        <entry key="..\:/Users/luisf/Ambiente de Trabalho/Agenda_EST/app/src/main/res/layout/removidosucesso.xml" value="0.25" />
+        <entry key="..\:/Users/luisf/Ambiente de Trabalho/Agenda_EST/app/src/main/res/layout/row.xml" value="0.25" />
       </map>
     </option>
   </component>
