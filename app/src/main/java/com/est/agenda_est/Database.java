@@ -22,8 +22,6 @@ public class Database extends SQLiteOpenHelper {
     //private static final String COL_CONTACTO_EMAIL = "email";
     //private static final String COL_CONTACTO_MORADA = "morada";
 
-
-
     Database(@Nullable Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
         this.context = context;
@@ -31,7 +29,12 @@ public class Database extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        String query = "CREATE TABLE " + TABLE_NAME + " (" + COL_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " + COL_NAME + " TEXT, " + COL_SOBRENOME + " TEXT, " + COL_CONTACTO_TELEFONE + " INTEGER);";
+        String query = "CREATE TABLE " +
+                TABLE_NAME + "" + " (" +
+                COL_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                COL_NAME + " TEXT, " +
+                COL_SOBRENOME + " TEXT, " +
+                COL_CONTACTO_TELEFONE + " INTEGER);";
         db.execSQL(query);
     }
 

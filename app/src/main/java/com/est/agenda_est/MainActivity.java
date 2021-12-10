@@ -1,27 +1,41 @@
 package com.est.agenda_est;
 
+import static android.graphics.Color.*;
+import static android.graphics.Color.parseColor;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.view.MenuItemCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.Color;
+import android.graphics.PorterDuff;
 import android.graphics.drawable.ColorDrawable;
+import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
+import android.text.Editable;
 import android.text.Html;
+import android.text.Layout;
+import android.text.TextWatcher;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.SearchView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -30,28 +44,49 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
+    // Criação de variaveis
+    SearchView search_bar;
     RecyclerView recyclerView;
     FloatingActionButton add_button;
+    Button back;
+    View ab;
     ImageView sem_resultado;
     TextView sem_resultado_texto;
-
     Database db;
     ArrayList<String> id,nome,sobrenome,contacto;
     CustomAdapter customAdapter;
+
     @RequiresApi(api = Build.VERSION_CODES.M)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
-        ActionBar ab = getSupportActionBar();
-
-
+        //Definição de variaveis
+        ab = findViewById(R.id.include2);
+        back = findViewById(R.id.back_arrow);
         recyclerView = findViewById(R.id.recyclerView);
         add_button = findViewById(R.id.add_button);
         sem_resultado = findViewById(R.id.sem_resultado);
         sem_resultado_texto = findViewById(R.id.sem_resultado_texto);
+        search_bar = findViewById(R.id.search_bar);
+
+        search_bar.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                customAdapter.getFilter().filter(newText);
+                return false;
+            }
+        });
+        //Adapting action bar to main activity
+        ab.setBackgroundColor(WHITE);
+        back.setVisibility(View.GONE);
+        //set listener
         add_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -59,21 +94,17 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
+        //Initialize db
         db = new Database(MainActivity.this);
         id = new ArrayList<>();
         nome = new ArrayList<>();
         sobrenome = new ArrayList<>();
         contacto = new ArrayList<>();
-
         populateArrays();
-
         customAdapter = new CustomAdapter(MainActivity.this, this, id, nome, sobrenome, contacto);
         recyclerView.setAdapter(customAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(MainActivity.this));
-
     }
-
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -81,7 +112,6 @@ public class MainActivity extends AppCompatActivity {
             recreate();
         }
     }
-
     void populateArrays(){
         Cursor cursor = db.readAllData();
         if (cursor.getCount() == 0){

@@ -9,23 +9,32 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.widget.Button;
+import android.widget.Filter;
+import android.widget.Filterable;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
+import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+import java.util.Locale;
 
-public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHolder> {
-
+public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHolder> implements Filterable {
     private Context context;
-    Activity activity;
-    private ArrayList id,nome,sobrenome,contacto;
+    private Activity activity;
+    public ArrayList id,nome,sobrenome,contacto;
+    private ArrayList filtered;
     private MyViewHolder holder;
     private int position;
 
-    Animation translate_anim;
+    private Animation translate_anim;
 
     CustomAdapter(Activity activity,Context context, ArrayList id,ArrayList nome,ArrayList sobrenome,ArrayList contacto){
         this.activity = activity;
@@ -34,6 +43,7 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
         this.nome = nome;
         this.sobrenome = sobrenome;
         this.contacto = contacto;
+        this.filtered = new ArrayList(nome);
 
     }
     @NonNull
@@ -55,7 +65,7 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
         holder.mainLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(context,UpdateActivity.class);
+                Intent intent = new Intent(context, contacto.class);
                 intent.putExtra("id",String.valueOf(id.get(position)));
                 intent.putExtra("nome",String.valueOf(nome.get(position)));
                 intent.putExtra("sobrenome",String.valueOf(sobrenome.get(position)));
@@ -64,11 +74,43 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
             }
         });
     }
-
     @Override
     public int getItemCount() {
         return id.size();
     }
+
+    @Override
+    public Filter getFilter() {
+        return filteredNames    ;
+    }
+
+    private final Filter filteredNames = new Filter() {
+        @Override
+        protected FilterResults performFiltering(CharSequence constraint) {
+            List<String> filteredList = new ArrayList<>();
+
+            if (constraint == null || constraint.length() == 0){
+                filteredList.addAll(filtered);
+            }else {
+                for (String nome: filteredList) {
+                    if (nome.getClass().getName().toLowerCase().contains(constraint.toString().toLowerCase())){
+                        filteredList.add(nome);
+                    }
+                }
+
+            }
+            FilterResults filterResults = new FilterResults();
+            filterResults.values = filteredList;
+            return filterResults;
+        }
+
+        @Override
+        protected void publishResults(CharSequence constraint, FilterResults results) {
+            nome.clear();
+            nome.addAll((Collection) results.values);
+            notifyDataSetChanged();
+        }
+    };
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
 

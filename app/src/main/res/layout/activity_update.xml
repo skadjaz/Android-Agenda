@@ -6,96 +6,132 @@
     android:layout_height="match_parent"
     android:background="#F1F9FF"
     android:backgroundTint="#F1F9FF"
-    android:padding="30dp"
+    app:titleTextAppearance="@style/TextAppearance.AppCompat.Body2"
     tools:context=".AddActivity">
 
-    <Button
-        android:id="@+id/update_button"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:backgroundTint="#2699FB"
-        android:text="Actualizar Contacto"
-        android:textAllCaps="false"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/caixas_texto" />
 
-    <Button
-        android:id="@+id/delete_button"
+    <include
+        android:id="@+id/include"
+        layout="@layout/actionbar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:backgroundTint="#FB2659"
-        android:text="Remover Contacto"
-        android:textAllCaps="false"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/update_button" />
+        android:layout_height="wrap_content" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/caixas_texto"
-        android:layout_width="match_parent"
-        android:layout_height="350dp"
-        android:layout_marginTop="4dp"
-        android:background="#FFFFFF"
-        android:backgroundTint="#FFFFFF"
-        android:padding="30dp"
+        android:layout_width="300dp"
+        android:layout_height="500dp"
+        android:layout_margin="30dp"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginEnd="42dp"
+        android:background="#F1F9FF"
+        android:backgroundTint="#F1F9FF"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:context=".AddActivity">
+        app:layout_constraintTop_toBottomOf="@+id/include">
 
-        <EditText
-            android:id="@+id/nome_input2"
+        .<Button
+            android:id="@+id/update_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="32dp"
-            android:ems="10"
-            android:hint="Name"
-            android:inputType="textPersonName"
-            android:minHeight="48dp"
+            android:backgroundTint="#2699FB"
+            android:text="Actualizar Contacto"
+            android:background="@drawable/custom_input"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="10sp"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/titulo" />
+            app:layout_constraintTop_toBottomOf="@+id/caixas_texto" />
 
-        <EditText
-            android:id="@+id/sobrenome_input2"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/caixas_texto"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:ems="10"
-            android:hint="sobrenome"
-            android:inputType="textPersonName"
-            android:minHeight="48dp"
+            android:layout_height="300dp"
+            android:background="@drawable/custom_input"
+            android:backgroundTint="#FFFFFF"
+            android:padding="30dp"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/nome_input2" />
+            app:layout_constraintTop_toTopOf="parent"
+            tools:context=".AddActivity">
 
-        <EditText
-            android:id="@+id/contacto_input2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:ems="10"
-            android:hint="contacto"
-            android:inputType="textPersonName"
-            android:minHeight="48dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/sobrenome_input2" />
+            <EditText
+                android:id="@+id/nome_input2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:background="@drawable/custom_input"
+                android:drawableStart="@drawable/custom_edit_icon"
+                android:drawablePadding="12dp"
+                android:ems="10"
+                android:hint="Nome completo"
+                android:cursorVisible="false"
+                android:textSize="14sp"
+                android:inputType="textPersonName"
+                android:minHeight="48dp"
+                android:padding="12dp"
+                android:textColor="#2699FB"
+                android:textColorHint="#BCE0FD"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/titulo_user" />
 
-        <TextView
-            android:id="@+id/titulo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Dados Contacto"
-            android:textColor="#2699FB"
-            android:textSize="20dp"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            <EditText
+                android:id="@+id/sobrenome_input2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/custom_input"
+                android:drawableStart="@drawable/custom_edit_icon"
+                android:drawablePadding="12dp"
+                android:ems="10"
+                android:hint="Email"
+                android:cursorVisible="false"
+                android:textSize="14sp"
+                android:inputType="textPersonName"
+                android:minHeight="48dp"
+                android:padding="12dp"
+                android:textColor="#2699FB"
+                android:textColorHint="#BCE0FD"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/nome_input2" />
+
+            <EditText
+                android:id="@+id/contacto_input2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/custom_input"
+                android:drawableStart="@drawable/custom_phone_icon"
+                android:drawablePadding="12dp"
+                android:ems="10"
+                android:hint="contacto"
+                android:cursorVisible="false"
+                android:textSize="14sp"
+                android:inputType="textPersonName"
+                android:minHeight="48dp"
+                android:padding="12dp"
+                android:textColor="#2699FB"
+                android:textColorHint="#BCE0FD"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/sobrenome_input2" />
+
+            <TextView
+                android:id="@+id/titulo_user"
+                android:layout_width="wrap_content"
+                android:layout_height="22dp"
+                android:textColor="#2699FB"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
