@@ -9,7 +9,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
-import android.widget.Button;
 import android.widget.Filter;
 import android.widget.Filterable;
 import android.widget.LinearLayout;
@@ -18,21 +17,20 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
-import java.util.Locale;
 
 public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHolder> implements Filterable {
     private Context context;
     private Activity activity;
-    public ArrayList id,nome,sobrenome,contacto;
+    private ArrayList id;
+    private ArrayList nome;
+    private ArrayList sobrenome;
+    private ArrayList contacto;
     private ArrayList filtered;
     private MyViewHolder holder;
-    private int position;
 
     private Animation translate_anim;
 
@@ -56,9 +54,7 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, @SuppressLint("RecyclerView") final int position) {
-        this.holder = holder;
-        this.position = position;
-        holder.id_txt.setText(String.valueOf(id.get(position)));
+       // holder.id_txt.setText(String.valueOf(id.get(position)));
         holder.nome_txt.setText(String.valueOf(nome.get(position)));
         holder.sobrenome_txt.setText(String.valueOf(sobrenome.get(position)));
         holder.contacto_txt.setText(String.valueOf(contacto.get(position)));
@@ -76,28 +72,28 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
     }
     @Override
     public int getItemCount() {
-        return id.size();
+        return nome.size();
     }
 
     @Override
     public Filter getFilter() {
-        return filteredNames    ;
+        return filteredNames;
     }
 
     private final Filter filteredNames = new Filter() {
         @Override
         protected FilterResults performFiltering(CharSequence constraint) {
-            List<String> filteredList = new ArrayList<>();
+            ArrayList filteredList = new ArrayList<>();
+
 
             if (constraint == null || constraint.length() == 0){
                 filteredList.addAll(filtered);
             }else {
-                for (String nome: filteredList) {
-                    if (nome.getClass().getName().toLowerCase().contains(constraint.toString().toLowerCase())){
-                        filteredList.add(nome);
+                for (int i = 0; i < nome.size() ; i++) {
+                    if (nome.get(i).toString().toLowerCase().contains(constraint.toString().toLowerCase())){
+                        filteredList.add(nome.get(i).toString());
                     }
                 }
-
             }
             FilterResults filterResults = new FilterResults();
             filterResults.values = filteredList;
@@ -111,6 +107,8 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
             notifyDataSetChanged();
         }
     };
+
+
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
 

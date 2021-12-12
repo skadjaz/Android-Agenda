@@ -70,22 +70,10 @@ public class MainActivity extends AppCompatActivity {
         sem_resultado = findViewById(R.id.sem_resultado);
         sem_resultado_texto = findViewById(R.id.sem_resultado_texto);
         search_bar = findViewById(R.id.search_bar);
-
-        search_bar.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-            @Override
-            public boolean onQueryTextSubmit(String query) {
-                return false;
-            }
-
-            @Override
-            public boolean onQueryTextChange(String newText) {
-                customAdapter.getFilter().filter(newText);
-                return false;
-            }
-        });
         //Adapting action bar to main activity
         ab.setBackgroundColor(WHITE);
         back.setVisibility(View.GONE);
+
         //set listener
         add_button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -94,16 +82,31 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
         //Initialize db
         db = new Database(MainActivity.this);
         id = new ArrayList<>();
         nome = new ArrayList<>();
         sobrenome = new ArrayList<>();
         contacto = new ArrayList<>();
+
         populateArrays();
+
         customAdapter = new CustomAdapter(MainActivity.this, this, id, nome, sobrenome, contacto);
         recyclerView.setAdapter(customAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(MainActivity.this));
+
+        search_bar.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                customAdapter.getFilter().filter(newText);
+                return true;
+            }
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
+        });
     }
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
