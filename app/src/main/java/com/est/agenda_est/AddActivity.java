@@ -12,7 +12,7 @@ import android.widget.TextView;
 
 public class AddActivity extends AppCompatActivity {
     //Criação de variaveis
-    EditText nome_input,sobrenome_input,contacto_input;
+    EditText nome_input,sobrenome_input,email_input,morada_input,contacto_input;
     Button add_button,back_button;
     ImageView menu_item;
     View ab;
@@ -30,6 +30,8 @@ public class AddActivity extends AppCompatActivity {
         menu_item = findViewById(R.id.menu_item);
         nome_input = findViewById(R.id.nome_input);
         sobrenome_input = findViewById(R.id.sobrenome_input);
+        email_input = findViewById(R.id.email_input);
+        morada_input = findViewById(R.id.morada_input);
         contacto_input = findViewById(R.id.contacto_input);
         add_button = findViewById(R.id.add_button);
         back_button = findViewById(R.id.back_arrow);
@@ -45,10 +47,8 @@ public class AddActivity extends AppCompatActivity {
                 onBackPressed();
             }
         });
-        // add contact Listener
+        // Acção de click , trigger adicionar na base de dados
         add_button.setOnClickListener(new View.OnClickListener() {
-
-
             @Override
             public void onClick(View v) {
                 //Inicializar base de dados
@@ -57,13 +57,17 @@ public class AddActivity extends AppCompatActivity {
 
                 boolean digitsOnly = TextUtils.isDigitsOnly(contacto_input.getText());
 
-                if (digitsOnly){
+                if (digitsOnly && contacto_input != null){
                     myDB.addContacto(nome_input.getText().toString().trim(),
                             sobrenome_input.getText().toString().trim(),
+                            email_input.getText().toString().trim(),
+                            morada_input.getText().toString().trim(),
                             Integer.valueOf(contacto_input.getText().toString().trim()), digitsOnly);
                 }else {
                     myDB.addContacto(nome_input.getText().toString().trim(),
                             sobrenome_input.getText().toString().trim(),
+                            email_input.getText().toString().trim(),
+                            morada_input.getText().toString().trim(),
                             0, digitsOnly);
                 }
             }

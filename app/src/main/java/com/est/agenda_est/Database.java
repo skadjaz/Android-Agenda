@@ -19,9 +19,10 @@ public class Database extends SQLiteOpenHelper {
     private static final String COL_ID = "_id";
     private static final String COL_NAME = "nome";
     private static final String COL_SOBRENOME = "sobrenome";
-    private static final String COL_CONTACTO_TELEFONE = "telemovel";
-    //private static final String COL_CONTACTO_EMAIL = "email";
-    //private static final String COL_CONTACTO_MORADA = "morada";
+    private static final String COL_EMAIL = "email";
+    private static final String COL_MORADA = "morada";
+    private static final String COL_TELEFONE = "telemovel";
+
 
     Database(@Nullable Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -35,7 +36,9 @@ public class Database extends SQLiteOpenHelper {
                 COL_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
                 COL_NAME + " TEXT, " +
                 COL_SOBRENOME + " TEXT, " +
-                COL_CONTACTO_TELEFONE + " INTEGER);";
+                COL_EMAIL + " TEXT, " +
+                COL_MORADA + " TEXT, " +
+                COL_TELEFONE + " INTEGER);";
         db.execSQL(query);
     }
 
@@ -44,14 +47,16 @@ public class Database extends SQLiteOpenHelper {
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME);
     }
 
-    void addContacto(String nome, String sobrenome, int telemovel, boolean digitsOnly){
+    void addContacto(String nome, String sobrenome, String email, String morada, int telemovel, boolean digitsOnly){
         if (digitsOnly){
             SQLiteDatabase db = this.getWritableDatabase();
             ContentValues cv = new ContentValues();
 
             cv.put(COL_NAME,nome);
             cv.put(COL_SOBRENOME,sobrenome);
-            cv.put(COL_CONTACTO_TELEFONE,telemovel);
+            cv.put(COL_EMAIL,email);
+            cv.put(COL_MORADA,morada);
+            cv.put(COL_TELEFONE,telemovel);
 
             long result = db.insert(TABLE_NAME,null,cv);
             if (result == -1){
@@ -86,12 +91,15 @@ public class Database extends SQLiteOpenHelper {
         return cursor;
     }
 
-    void updateData(String row_id,String nome,String sobrenome,String contacto){
+    void updateData(String row_id,String nome, String sobrenome, String email, String morada, int telemovel){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
-        cv.put(COL_NAME , nome);
-        cv.put(COL_SOBRENOME , sobrenome);
-        cv.put(COL_CONTACTO_TELEFONE , contacto);
+
+        cv.put(COL_NAME,nome);
+        cv.put(COL_SOBRENOME,sobrenome);
+        cv.put(COL_EMAIL,email);
+        cv.put(COL_MORADA,morada);
+        cv.put(COL_TELEFONE,telemovel);
 
         long result = db.update(TABLE_NAME,cv,"_id=?", new String[]{row_id});
         

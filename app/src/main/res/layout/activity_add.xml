@@ -17,8 +17,8 @@
         android:layout_height="wrap_content" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="300dp"
-        android:layout_height="500dp"
+        android:layout_width="400dp"
+        android:layout_height="600dp"
         android:layout_margin="30dp"
         android:layout_marginStart="36dp"
         android:layout_marginTop="2dp"
@@ -31,31 +31,31 @@
 
         <Button
             android:id="@+id/add_button"
-            android:layout_width="match_parent"
+            android:layout_width="327dp"
             android:layout_height="wrap_content"
             android:background="@drawable/custom_input"
             android:backgroundTint="#2699FB"
             android:text="Adicionar Contacto"
             android:textAllCaps="false"
             android:textColor="@color/white"
-            android:textSize="12sp"
+            android:textSize="14sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintHorizontal_bias="0.506"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/caixas_texto"
-            app:layout_constraintVertical_bias="0.504" />
+            app:layout_constraintVertical_bias="0.482" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/caixas_texto"
-            android:layout_width="match_parent"
-            android:layout_height="300dp"
+            android:layout_width="327dp"
+            android:layout_height="439dp"
             android:layout_marginTop="28dp"
             android:background="@drawable/custom_input"
             android:backgroundTint="#FFFFFF"
             android:padding="30dp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintHorizontal_bias="0.506"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:context=".AddActivity">
@@ -64,12 +64,12 @@
                 android:id="@+id/nome_input"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="24dp"
+                android:layout_marginTop="44dp"
                 android:background="@drawable/custom_input"
                 android:drawableStart="@drawable/custom_edit_icon"
                 android:drawablePadding="12dp"
                 android:ems="10"
-                android:hint="Name"
+                android:hint="Nome"
                 android:inputType="textPersonName"
                 android:minHeight="48dp"
                 android:padding="12dp"
@@ -88,7 +88,7 @@
                 android:drawableStart="@drawable/custom_edit_icon"
                 android:drawablePadding="12dp"
                 android:ems="10"
-                android:hint="sobrenome"
+                android:hint="Sobrenome"
                 android:inputType="textPersonName"
                 android:minHeight="48dp"
                 android:padding="12dp"
@@ -97,6 +97,44 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/nome_input" />
+
+            <EditText
+                android:id="@+id/email_input"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/custom_input"
+                android:drawableStart="@drawable/custom_mail_icon"
+                android:drawablePadding="12dp"
+                android:ems="10"
+                android:hint="Email"
+                android:inputType="textPersonName"
+                android:minHeight="48dp"
+                android:padding="12dp"
+                android:textColor="#2699FB"
+                android:textColorHint="#BCE0FD"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/sobrenome_input" />
+
+            <EditText
+                android:id="@+id/morada_input"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/custom_input"
+                android:drawableStart="@drawable/custom_home_icon"
+                android:drawablePadding="12dp"
+                android:ems="10"
+                android:hint="Morada"
+                android:inputType="textPersonName"
+                android:minHeight="48dp"
+                android:padding="12dp"
+                android:textColor="#2699FB"
+                android:textColorHint="#BCE0FD"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/email_input" />
 
             <EditText
                 android:id="@+id/contacto_input"
@@ -115,7 +153,7 @@
                 android:textColorHint="#BCE0FD"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/sobrenome_input" />
+                app:layout_constraintTop_toBottomOf="@+id/morada_input" />
 
             <TextView
                 android:id="@+id/titulo"

@@ -15,9 +15,9 @@ import android.widget.Toast;
 
 public class contacto extends AppCompatActivity {
     //Criação de variaveis
-    TextView nome_input, sobrenome_input, contacto_input;
+    TextView nome_input,email_input,morada_input,contacto_input;
     Button edit_button,delete_button,back_button;
-    String id, nome, sobrenome, contacto;
+    String id, nome, sobrenome,email,morada, contacto;
 
     //Button add_button;
     @Override
@@ -28,7 +28,8 @@ public class contacto extends AppCompatActivity {
 
         // Atribuição de elementos do layout ás respectivas variáveis
         nome_input = findViewById(R.id.nome_contacto);
-        sobrenome_input = findViewById(R.id.sobrenome_contacto);
+        email_input = findViewById(R.id.email_contacto);
+        morada_input = findViewById(R.id.morada_contacto);
         contacto_input = findViewById(R.id.contacto_telemovel);
         edit_button = findViewById(R.id.edit_button);
         delete_button = findViewById(R.id.delete_button);
@@ -49,6 +50,8 @@ public class contacto extends AppCompatActivity {
                 intent.putExtra("id",String.valueOf(id));
                 intent.putExtra("nome",String.valueOf(nome));
                 intent.putExtra("sobrenome",String.valueOf(sobrenome));
+                intent.putExtra("email",String.valueOf(email));
+                intent.putExtra("morada",String.valueOf(morada));
                 intent.putExtra("contacto",String.valueOf(contacto));
                 startActivity(intent);
             }
@@ -61,29 +64,46 @@ public class contacto extends AppCompatActivity {
         });
     }
     void getAndSetIntentData() {
-        if (getIntent().hasExtra("id") && getIntent().hasExtra("nome") && getIntent().hasExtra("sobrenome") && getIntent().hasExtra("contacto")) {
+        if (getIntent().hasExtra("id") &&
+                getIntent().hasExtra("nome") &&
+                getIntent().hasExtra("sobrenome") &&
+                getIntent().hasExtra("email") &&
+                getIntent().hasExtra("morada")&&
+                getIntent().hasExtra("contacto")) {
+
             // Getting Data
             id = getIntent().getStringExtra("id");
             nome = getIntent().getStringExtra("nome");
             sobrenome = getIntent().getStringExtra("sobrenome");
+            email = getIntent().getStringExtra("email");
+            morada = getIntent().getStringExtra("morada");
             contacto = getIntent().getStringExtra("contacto");
+
             //Setting Data
             nome_input.setText(nome +' '+ sobrenome);
-            sobrenome_input.setText(sobrenome);
+            email_input.setText(email);
+            morada_input.setText(morada);
             contacto_input.setText(contacto);
+
         }else if (getIntent().hasExtra("id_updated") &&
                 getIntent().hasExtra("nome_updated") &&
                 getIntent().hasExtra("sobrenome_updated") &&
+                getIntent().hasExtra("email_updated") &&
+                getIntent().hasExtra("morada_updated") &&
                 getIntent().hasExtra("contacto_updated")){
+
             // Getting Data
             id = getIntent().getStringExtra("id_updated");
             nome = getIntent().getStringExtra("nome_updated");
             sobrenome = getIntent().getStringExtra("sobrenome_updated");
+            email = getIntent().getStringExtra("email_updated");
+            morada = getIntent().getStringExtra("morada_updated");
             contacto = getIntent().getStringExtra("contacto_updated");
 
             //Setting Data
             nome_input.setText(nome +' '+ sobrenome);
-            sobrenome_input.setText(sobrenome);
+            email_input.setText(email);
+            morada_input.setText(morada);
             contacto_input.setText(contacto);
 
         } else{

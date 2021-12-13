@@ -17,9 +17,10 @@ import android.widget.Toast;
 
 public class UpdateActivity extends AppCompatActivity {
     //Declaração de Variáveis
-    EditText nome_input,sobrenome_input,contacto_input;
+    EditText nome_input,sobrenome_input,email_input,morada_input,contacto_input;
     Button update_button,back_button;
-    String id,nome,sobrenome,contacto;
+    String id,nome,sobrenome,email,morada;
+    Integer contacto;
     TextView titulo,titulo_user;
     // Inicialização da atividade
     @Override
@@ -27,16 +28,18 @@ public class UpdateActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_update);
 
-        // Get elements
+        // Get elements and Set elements data
         nome_input = findViewById(R.id.nome_input2);
         sobrenome_input = findViewById(R.id.sobrenome_input2);
+        email_input = findViewById(R.id.email_input2);
+        morada_input = findViewById(R.id.morada_input2);
         contacto_input = findViewById(R.id.contacto_input2);
         update_button = findViewById(R.id.update_button);
         back_button = findViewById(R.id.back_arrow);
         titulo = findViewById(R.id.titulo);
         titulo_user = findViewById(R.id.titulo_user);
 
-        // Set elements data
+        //
         // Get and set Intent Data
         getAndSetIntentData();
 
@@ -62,8 +65,10 @@ public class UpdateActivity extends AppCompatActivity {
                 Database myDB = new Database(UpdateActivity.this);
                 nome = nome_input.getText().toString().trim();
                 sobrenome = sobrenome_input.getText().toString().trim();
-                contacto = contacto_input.getText().toString().trim();
-                myDB.updateData(id,nome,sobrenome,contacto);
+                email = email_input.getText().toString().trim();
+                morada = morada_input.getText().toString().trim();
+                contacto = Integer.valueOf(contacto_input.getText().toString().trim());
+                myDB.updateData(id,nome,sobrenome,email,morada,contacto);
 
                 //Preparing data for previous activity
 
@@ -71,6 +76,8 @@ public class UpdateActivity extends AppCompatActivity {
                 returned.putExtra("id_updated",id);
                 returned.putExtra("nome_updated",nome);
                 returned.putExtra("sobrenome_updated",sobrenome);
+                returned.putExtra("email_updated",email);
+                returned.putExtra("morada_updated",morada);
                 returned.putExtra("contacto_updated",contacto);
                 startActivity(returned);
             }
@@ -79,31 +86,51 @@ public class UpdateActivity extends AppCompatActivity {
 
     // Method for getting and setting intent data
     void getAndSetIntentData(){
-        if (getIntent().hasExtra("id") && getIntent().hasExtra("nome") && getIntent().hasExtra("sobrenome") && getIntent().hasExtra("contacto")){
+        if (getIntent().hasExtra("id") &&
+                getIntent().hasExtra("nome") &&
+                getIntent().hasExtra("sobrenome") &&
+                getIntent().hasExtra("email") &&
+                getIntent().hasExtra("morada") &&
+                getIntent().hasExtra("contacto")){
+
             // Getting Data
             id = getIntent().getStringExtra("id");
             nome = getIntent().getStringExtra("nome");
             sobrenome = getIntent().getStringExtra("sobrenome");
-            contacto = getIntent().getStringExtra("contacto");
+            email = getIntent().getStringExtra("email");
+            morada = getIntent().getStringExtra("morada");
+            contacto = Integer.valueOf(getIntent().getStringExtra("contacto"));
 
             //Setting Data
             nome_input.setText(nome);
             sobrenome_input.setText(sobrenome);
-            contacto_input.setText(contacto);
+            email_input.setText(email);
+            morada_input.setText(morada);
+            contacto_input.setText(String.valueOf(contacto));
+
         }else if (getIntent().hasExtra("id_updated") &&
                 getIntent().hasExtra("nome_updated") &&
                 getIntent().hasExtra("sobrenome_updated") &&
+                getIntent().hasExtra("email_updated") &&
+                getIntent().hasExtra("morada_updated") &&
                 getIntent().hasExtra("contacto_updated")){
+
             // Getting Data
+
             id = getIntent().getStringExtra("id_updated");
             nome = getIntent().getStringExtra("nome_updated");
             sobrenome = getIntent().getStringExtra("sobrenome_updated");
-            contacto = getIntent().getStringExtra("contacto_updated");
+            email = getIntent().getStringExtra("email_updated");
+            morada = getIntent().getStringExtra("morada_updated");
+            contacto = Integer.valueOf(getIntent().getStringExtra("contacto_updated"));
 
             //Setting Data
+
             nome_input.setText(nome +' '+ sobrenome);
             sobrenome_input.setText(sobrenome);
-            contacto_input.setText(contacto);
+            email_input.setText(email);
+            morada_input.setText(morada);
+            contacto_input.setText(String.valueOf(contacto));
 
         }else {
             Toast.makeText(this, "No data", Toast.LENGTH_SHORT).show();

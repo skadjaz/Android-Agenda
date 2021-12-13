@@ -53,7 +53,7 @@ public class MainActivity extends AppCompatActivity {
     ImageView sem_resultado;
     TextView sem_resultado_texto;
     Database db;
-    ArrayList<String> id,nome,sobrenome,contacto;
+    ArrayList<String> id,nome,sobrenome,email,morada,contacto;
     CustomAdapter customAdapter;
 
     @RequiresApi(api = Build.VERSION_CODES.M)
@@ -88,11 +88,13 @@ public class MainActivity extends AppCompatActivity {
         id = new ArrayList<>();
         nome = new ArrayList<>();
         sobrenome = new ArrayList<>();
+        email = new ArrayList<>();
+        morada = new ArrayList<>();
         contacto = new ArrayList<>();
 
         populateArrays();
 
-        customAdapter = new CustomAdapter(MainActivity.this, this, id, nome, sobrenome, contacto);
+        customAdapter = new CustomAdapter(MainActivity.this, this, id, nome, sobrenome,email,morada, contacto);
         recyclerView.setAdapter(customAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(MainActivity.this));
 
@@ -125,7 +127,9 @@ public class MainActivity extends AppCompatActivity {
                 id.add(cursor.getString(0));
                 nome.add(cursor.getString(1));
                 sobrenome.add(cursor.getString(2));
-                contacto.add(cursor.getString(3));
+                email.add(cursor.getString(3));
+                morada.add(cursor.getString(4));
+                contacto.add(cursor.getString(5));
             }
             sem_resultado.setVisibility(View.GONE);
             sem_resultado_texto.setVisibility(View.GONE);

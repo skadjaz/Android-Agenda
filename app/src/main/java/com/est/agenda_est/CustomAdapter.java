@@ -27,25 +27,33 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
     private ArrayList id;
     private ArrayList nome;
     private ArrayList sobrenome;
+    private ArrayList email;
+    private ArrayList morada;
     private ArrayList contacto;
     private ArrayList idFull;
     private ArrayList nomeFull;
     private ArrayList sobrenomeFull;
+    private ArrayList emailFull;
+    private ArrayList moradaFull;
     private ArrayList contactoFull;
     private MyViewHolder holder;
 
     private Animation translate_anim;
 
-    CustomAdapter(Activity activity,Context context, ArrayList id,ArrayList nome,ArrayList sobrenome,ArrayList contacto){
+    CustomAdapter(Activity activity,Context context, ArrayList id,ArrayList nome,ArrayList sobrenome,ArrayList email,ArrayList morada,ArrayList contacto){
         this.activity = activity;
         this.context = context;
         this.id = id;
         this.nome = nome;
         this.sobrenome = sobrenome;
+        this.email = email;
+        this.morada = morada;
         this.contacto = contacto;
         this.idFull = new ArrayList(id);
         this.nomeFull = new ArrayList(nome);
         this.sobrenomeFull = new ArrayList(sobrenome);
+        this.emailFull = new ArrayList(email);
+        this.moradaFull = new ArrayList(morada);
         this.contactoFull = new ArrayList(contacto);
 
     }
@@ -62,6 +70,8 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
         holder.id_txt.setText(String.valueOf(id.get(position)));
         holder.nome_txt.setText(String.valueOf(nome.get(position)));
         holder.sobrenome_txt.setText(String.valueOf(sobrenome.get(position)));
+        holder.email_txt.setText(String.valueOf(email.get(position)));
+        holder.morada_txt.setText(String.valueOf(morada.get(position)));
         holder.contacto_txt.setText(String.valueOf(contacto.get(position)));
         holder.mainLayout.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -70,6 +80,8 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
                 intent.putExtra("id",String.valueOf(id.get(position)));
                 intent.putExtra("nome",String.valueOf(nome.get(position)));
                 intent.putExtra("sobrenome",String.valueOf(sobrenome.get(position)));
+                intent.putExtra("email",String.valueOf(email.get(position)));
+                intent.putExtra("morada",String.valueOf(morada.get(position)));
                 intent.putExtra("contacto",String.valueOf(contacto.get(position)));
                 activity.startActivityForResult(intent,1);
             }
@@ -111,12 +123,16 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
             if (nome.size() > 0){
                 id.clear();
                 sobrenome.clear();
+                email.clear();
+                morada.clear();
                 contacto.clear();
                 for (Object posicao : nome){
                     for (Object nome : nomeFull){
                         if (posicao.toString().equals(nome.toString())){
                             id.add(idFull.get(nomeFull.indexOf(nome)));
                             sobrenome.add(sobrenomeFull.get(nomeFull.indexOf(nome)));
+                            email.add(emailFull.get(nomeFull.indexOf(nome)));
+                            morada.add(moradaFull.get(nomeFull.indexOf(nome)));
                             contacto.add(contactoFull.get(nomeFull.indexOf(nome)));
                         }
                     }
@@ -130,7 +146,7 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
 
-        TextView id_txt,nome_txt,sobrenome_txt,contacto_txt;
+        TextView id_txt,nome_txt,sobrenome_txt,email_txt,morada_txt,contacto_txt;
         LinearLayout mainLayout;
 
         public MyViewHolder(@NonNull View itemView) {
@@ -138,6 +154,8 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
             id_txt = itemView.findViewById(R.id.id_txt);
             nome_txt = itemView.findViewById(R.id.nome_txt);
             sobrenome_txt = itemView.findViewById(R.id.sobrenome_txt);
+            email_txt = itemView.findViewById(R.id.email_txt);
+            morada_txt = itemView.findViewById(R.id.morada_txt);
             contacto_txt = itemView.findViewById(R.id.contacto_txt);
             mainLayout = itemView.findViewById(R.id.mainLayout);
             //RecyclerView Animado

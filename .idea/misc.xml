@@ -25,15 +25,18 @@
         <entry key="..\:/Est/2_Ano/programacao_android/Agenda_EST_FINAL/app/src/main/res/layout/row.xml" value="0.67" />
         <entry key="..\:/Est/2_Ano/programacao_android/Agenda_EST_FINAL/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.22592592592592592" />
         <entry key="..\:/Est/2_Ano/programacao_android/Agenda_EST_FINAL/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.3769230769230769" />
+        <entry key="..\:/Users/luisf/Ambiente de Trabalho/Agenda_EST/app/src/main/res/drawable-ldpi/custom_mail_icon.xml" value="0.36019736842105265" />
         <entry key="..\:/Users/luisf/Ambiente de Trabalho/Agenda_EST/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.5703125" />
         <entry key="..\:/Users/luisf/Ambiente de Trabalho/Agenda_EST/app/src/main/res/drawable/add.xml" value="0.5703125" />
         <entry key="..\:/Users/luisf/Ambiente de Trabalho/Agenda_EST/app/src/main/res/drawable/custom_edit_icon.xml" value="0.5703125" />
+        <entry key="..\:/Users/luisf/Ambiente de Trabalho/Agenda_EST/app/src/main/res/drawable/custom_home_icon.xml" value="0.36019736842105265" />
         <entry key="..\:/Users/luisf/Ambiente de Trabalho/Agenda_EST/app/src/main/res/drawable/custom_input.xml" value="0.5703125" />
         <entry key="..\:/Users/luisf/Ambiente de Trabalho/Agenda_EST/app/src/main/res/drawable/custom_input_contacto.xml" value="0.5703125" />
         <entry key="..\:/Users/luisf/Ambiente de Trabalho/Agenda_EST/app/src/main/res/drawable/custom_input_small.xml" value="0.5703125" />
         <entry key="..\:/Users/luisf/Ambiente de Trabalho/Agenda_EST/app/src/main/res/drawable/custom_phone_icon.xml" value="0.5703125" />
         <entry key="..\:/Users/luisf/Ambiente de Trabalho/Agenda_EST/app/src/main/res/drawable/ic_add.xml" value="0.5703125" />
         <entry key="..\:/Users/luisf/Ambiente de Trabalho/Agenda_EST/app/src/main/res/drawable/ic_arrow_back.xml" value="0.5703125" />
+        <entry key="..\:/Users/luisf/Ambiente de Trabalho/Agenda_EST/app/src/main/res/drawable/ic_baseline_check_circle_24.xml" value="0.36019736842105265" />
         <entry key="..\:/Users/luisf/Ambiente de Trabalho/Agenda_EST/app/src/main/res/drawable/ic_baseline_edit_24.xml" value="0.5703125" />
         <entry key="..\:/Users/luisf/Ambiente de Trabalho/Agenda_EST/app/src/main/res/drawable/ic_baseline_edit_focus.xml" value="0.5703125" />
         <entry key="..\:/Users/luisf/Ambiente de Trabalho/Agenda_EST/app/src/main/res/drawable/ic_baseline_phone_24.xml" value="0.5703125" />
@@ -41,6 +44,8 @@
         <entry key="..\:/Users/luisf/Ambiente de Trabalho/Agenda_EST/app/src/main/res/drawable/ic_border_style.xml" value="0.5703125" />
         <entry key="..\:/Users/luisf/Ambiente de Trabalho/Agenda_EST/app/src/main/res/drawable/ic_delete.xml" value="0.5703125" />
         <entry key="..\:/Users/luisf/Ambiente de Trabalho/Agenda_EST/app/src/main/res/drawable/ic_edit.xml" value="0.5703125" />
+        <entry key="..\:/Users/luisf/Ambiente de Trabalho/Agenda_EST/app/src/main/res/drawable/ic_email.xml" value="0.36019736842105265" />
+        <entry key="..\:/Users/luisf/Ambiente de Trabalho/Agenda_EST/app/src/main/res/drawable/ic_email_focus.xml" value="0.36019736842105265" />
         <entry key="..\:/Users/luisf/Ambiente de Trabalho/Agenda_EST/app/src/main/res/drawable/ic_menu.xml" value="0.5703125" />
         <entry key="..\:/Users/luisf/Ambiente de Trabalho/Agenda_EST/app/src/main/res/drawable/ic_nodata.xml" value="0.5703125" />
         <entry key="..\:/Users/luisf/Ambiente de Trabalho/Agenda_EST/app/src/main/res/drawable/ic_person.xml" value="0.5703125" />
@@ -48,7 +53,7 @@
         <entry key="..\:/Users/luisf/Ambiente de Trabalho/Agenda_EST/app/src/main/res/drawable/searchbar.xml" value="0.5703125" />
         <entry key="..\:/Users/luisf/Ambiente de Trabalho/Agenda_EST/app/src/main/res/layout/action_bar.xml" value="0.4010416666666667" />
         <entry key="..\:/Users/luisf/Ambiente de Trabalho/Agenda_EST/app/src/main/res/layout/actionbar.xml" value="0.75" />
-        <entry key="..\:/Users/luisf/Ambiente de Trabalho/Agenda_EST/app/src/main/res/layout/activity_add.xml" value="0.5" />
+        <entry key="..\:/Users/luisf/Ambiente de Trabalho/Agenda_EST/app/src/main/res/layout/activity_add.xml" value="0.33" />
         <entry key="..\:/Users/luisf/Ambiente de Trabalho/Agenda_EST/app/src/main/res/layout/activity_add_sucess.xml" value="0.5475543478260869" />
         <entry key="..\:/Users/luisf/Ambiente de Trabalho/Agenda_EST/app/src/main/res/layout/activity_main.xml" value="0.33" />
         <entry key="..\:/Users/luisf/Ambiente de Trabalho/Agenda_EST/app/src/main/res/layout/activity_update.xml" value="0.33" />
