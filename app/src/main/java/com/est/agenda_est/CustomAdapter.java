@@ -13,6 +13,7 @@ import android.widget.Filter;
 import android.widget.Filterable;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -27,8 +28,10 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
     private ArrayList nome;
     private ArrayList sobrenome;
     private ArrayList contacto;
+    private ArrayList idFull;
     private ArrayList nomeFull;
     private ArrayList sobrenomeFull;
+    private ArrayList contactoFull;
     private MyViewHolder holder;
 
     private Animation translate_anim;
@@ -40,8 +43,10 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
         this.nome = nome;
         this.sobrenome = sobrenome;
         this.contacto = contacto;
+        this.idFull = new ArrayList(id);
         this.nomeFull = new ArrayList(nome);
         this.sobrenomeFull = new ArrayList(sobrenome);
+        this.contactoFull = new ArrayList(contacto);
 
     }
     @NonNull
@@ -84,6 +89,8 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
         @Override
         protected FilterResults performFiltering(CharSequence constraint) {
             ArrayList filteredList = new ArrayList<>();
+            ArrayList filteredListSobrenomes = new ArrayList<>();
+            FilterResults filterResultsNomes = new FilterResults();
 
             if (constraint == null || constraint.length() == 0){
                 filteredList.addAll(nomeFull);
@@ -94,17 +101,28 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
                     }
                 }
             }
-            FilterResults filterResultsNomes = new FilterResults();
             filterResultsNomes.values = filteredList;
-
             return filterResultsNomes;
         }
-
         @Override
         protected void publishResults(CharSequence constraint, FilterResults results) {
             nome.clear();
             nome.addAll((Collection) results.values);
-            notifyDataSetChanged();
+            if (nome.size() > 0){
+                id.clear();
+                sobrenome.clear();
+                contacto.clear();
+                for (Object posicao : nome){
+                    for (Object nome : nomeFull){
+                        if (posicao.toString().equals(nome.toString())){
+                            id.add(idFull.get(nomeFull.indexOf(nome)));
+                            sobrenome.add(sobrenomeFull.get(nomeFull.indexOf(nome)));
+                            contacto.add(contactoFull.get(nomeFull.indexOf(nome)));
+                        }
+                    }
+                }
+            }
+                notifyDataSetChanged();
         }
     };
 
