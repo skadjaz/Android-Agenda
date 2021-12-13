@@ -1,12 +1,9 @@
 package com.est.agenda_est;
 
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.app.Activity;
-import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -50,18 +47,25 @@ public class AddActivity extends AppCompatActivity {
         });
         // add contact Listener
         add_button.setOnClickListener(new View.OnClickListener() {
+
+
             @Override
             public void onClick(View v) {
                 //Inicializar base de dados
                 Database myDB = new Database(AddActivity.this);
                 // Chamar método de adicionar contacto
-                myDB.addContacto(nome_input.getText().toString().trim(),
-                        sobrenome_input.getText().toString().trim(),
-                        Integer.valueOf(contacto_input.getText().toString().trim()));
-                Intent intent = new Intent(AddActivity.this, AddSucess.class);
-                intent.putExtra("nome_added",nome_input.getText().toString().trim());
-                intent.putExtra("sobrenome_added",sobrenome_input.getText().toString().trim());
-                startActivity(intent);
+
+                boolean digitsOnly = TextUtils.isDigitsOnly(contacto_input.getText());
+
+                if (digitsOnly){
+                    myDB.addContacto(nome_input.getText().toString().trim(),
+                            sobrenome_input.getText().toString().trim(),
+                            Integer.valueOf(contacto_input.getText().toString().trim()), digitsOnly);
+                }else {
+                    myDB.addContacto(nome_input.getText().toString().trim(),
+                            sobrenome_input.getText().toString().trim(),
+                            0, digitsOnly);
+                }
             }
         });
     }

@@ -2,6 +2,7 @@ package com.est.agenda_est;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
@@ -43,21 +44,34 @@ public class Database extends SQLiteOpenHelper {
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME);
     }
 
-    void addContacto(String nome,String sobrenome,int telemovel){
-        SQLiteDatabase db = this.getWritableDatabase();
-        ContentValues cv = new ContentValues();
+    void addContacto(String nome, String sobrenome, int telemovel, boolean digitsOnly){
+        if (digitsOnly){
+            SQLiteDatabase db = this.getWritableDatabase();
+            ContentValues cv = new ContentValues();
 
-        cv.put(COL_NAME,nome);
-        cv.put(COL_SOBRENOME,sobrenome);
-        cv.put(COL_CONTACTO_TELEFONE,telemovel);
+            cv.put(COL_NAME,nome);
+            cv.put(COL_SOBRENOME,sobrenome);
+            cv.put(COL_CONTACTO_TELEFONE,telemovel);
 
-        long result = db.insert(TABLE_NAME,null,cv);
-
-        if (result == -1){
-            Toast.makeText(context, "Failed", Toast.LENGTH_SHORT).show();
-        }else {
-            //Toast.makeText(context, "Adicionado com Sucesso!", Toast.LENGTH_SHORT).show();
+            long result = db.insert(TABLE_NAME,null,cv);
+            if (result == -1){
+                Intent intent = new Intent(context, AddNoSucess.class);
+                intent.putExtra("nome_added",nome);
+                intent.putExtra("sobrenome_added",sobrenome);
+                context.startActivity(intent);
+            }else {
+                Intent intent = new Intent(context, AddSucess.class);
+                intent.putExtra("nome_added",nome);
+                intent.putExtra("sobrenome_added",sobrenome);
+                context.startActivity(intent);
+            }
+        }else{
+            Intent intent = new Intent(context, AddNoSucess.class);
+            intent.putExtra("nome_added",nome);
+            intent.putExtra("sobrenome_added",sobrenome);
+            context.startActivity(intent);
         }
+
     }
 
     Cursor readAllData(){

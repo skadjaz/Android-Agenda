@@ -8,11 +8,13 @@
         <entry key="..\:/Est/2_Ano/programacao_android/Agenda_EST_FINAL/app/src/main/res/drawable/ic_baseline_search_24.xml" value="0.3828125" />
         <entry key="..\:/Est/2_Ano/programacao_android/Agenda_EST_FINAL/app/src/main/res/layout/actionbar.xml" value="0.5" />
         <entry key="..\:/Est/2_Ano/programacao_android/Agenda_EST_FINAL/app/src/main/res/layout/activity_add.xml" value="0.5" />
+        <entry key="..\:/Est/2_Ano/programacao_android/Agenda_EST_FINAL/app/src/main/res/layout/activity_add_no_sucess.xml" value="0.36666666666666664" />
+        <entry key="..\:/Est/2_Ano/programacao_android/Agenda_EST_FINAL/app/src/main/res/layout/activity_add_sucess.xml" value="0.33" />
         <entry key="..\:/Est/2_Ano/programacao_android/Agenda_EST_FINAL/app/src/main/res/layout/activity_contacto.xml" value="0.21927083333333333" />
         <entry key="..\:/Est/2_Ano/programacao_android/Agenda_EST_FINAL/app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="..\:/Est/2_Ano/programacao_android/Agenda_EST_FINAL/app/src/main/res/layout/activity_update.xml" value="0.5" />
         <entry key="..\:/Est/2_Ano/programacao_android/Agenda_EST_FINAL/app/src/main/res/layout/activity_update2.xml" value="0.5" />
-        <entry key="..\:/Est/2_Ano/programacao_android/Agenda_EST_FINAL/app/src/main/res/layout/addsucessfully.xml" value="0.25416666666666665" />
+        <entry key="..\:/Est/2_Ano/programacao_android/Agenda_EST_FINAL/app/src/main/res/layout/addsucessfully.xml" value="0.33" />
         <entry key="..\:/Est/2_Ano/programacao_android/Agenda_EST_FINAL/app/src/main/res/layout/addunsucessfully.xml" value="0.33" />
         <entry key="..\:/Est/2_Ano/programacao_android/Agenda_EST_FINAL/app/src/main/res/layout/contacto.xml" value="0.67" />
         <entry key="..\:/Est/2_Ano/programacao_android/Agenda_EST_FINAL/app/src/main/res/layout/editadocomsucesso.xml" value="0.2" />
@@ -21,6 +23,8 @@
         <entry key="..\:/Est/2_Ano/programacao_android/Agenda_EST_FINAL/app/src/main/res/layout/perguntarremover.xml" value="0.5" />
         <entry key="..\:/Est/2_Ano/programacao_android/Agenda_EST_FINAL/app/src/main/res/layout/removidosucesso.xml" value="0.25416666666666665" />
         <entry key="..\:/Est/2_Ano/programacao_android/Agenda_EST_FINAL/app/src/main/res/layout/row.xml" value="0.67" />
+        <entry key="..\:/Est/2_Ano/programacao_android/Agenda_EST_FINAL/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.22592592592592592" />
+        <entry key="..\:/Est/2_Ano/programacao_android/Agenda_EST_FINAL/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.3769230769230769" />
         <entry key="..\:/Users/luisf/Ambiente de Trabalho/Agenda_EST/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.5703125" />
         <entry key="..\:/Users/luisf/Ambiente de Trabalho/Agenda_EST/app/src/main/res/drawable/add.xml" value="0.5703125" />
         <entry key="..\:/Users/luisf/Ambiente de Trabalho/Agenda_EST/app/src/main/res/drawable/custom_edit_icon.xml" value="0.5703125" />
