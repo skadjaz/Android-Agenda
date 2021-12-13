@@ -56,12 +56,12 @@ public class Database extends SQLiteOpenHelper {
         if (result == -1){
             Toast.makeText(context, "Failed", Toast.LENGTH_SHORT).show();
         }else {
-            Toast.makeText(context, "Adicionado com Sucesso!", Toast.LENGTH_SHORT).show();
+            //Toast.makeText(context, "Adicionado com Sucesso!", Toast.LENGTH_SHORT).show();
         }
     }
 
     Cursor readAllData(){
-        String query = "SELECT * FROM " + TABLE_NAME;
+        String query = "SELECT * FROM " + TABLE_NAME + " ORDER BY " + COL_NAME + " COLLATE NOCASE ASC ";
         SQLiteDatabase db = this.getReadableDatabase();
 
         Cursor cursor = null;

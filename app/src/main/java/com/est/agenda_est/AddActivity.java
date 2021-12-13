@@ -58,7 +58,9 @@ public class AddActivity extends AppCompatActivity {
                 myDB.addContacto(nome_input.getText().toString().trim(),
                         sobrenome_input.getText().toString().trim(),
                         Integer.valueOf(contacto_input.getText().toString().trim()));
-                Intent intent = new Intent(AddActivity.this, MainActivity.class);
+                Intent intent = new Intent(AddActivity.this, AddSucess.class);
+                intent.putExtra("nome_added",nome_input.getText().toString().trim());
+                intent.putExtra("sobrenome_added",sobrenome_input.getText().toString().trim());
                 startActivity(intent);
             }
         });

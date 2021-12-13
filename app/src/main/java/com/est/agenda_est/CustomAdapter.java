@@ -19,8 +19,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Collections;
-import java.util.List;
 
 public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHolder> implements Filterable {
     private Context context;
@@ -29,7 +27,8 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
     private ArrayList nome;
     private ArrayList sobrenome;
     private ArrayList contacto;
-    private ArrayList filtered;
+    private ArrayList nomeFull;
+    private ArrayList sobrenomeFull;
     private MyViewHolder holder;
 
     private Animation translate_anim;
@@ -41,7 +40,8 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
         this.nome = nome;
         this.sobrenome = sobrenome;
         this.contacto = contacto;
-        this.filtered = new ArrayList(nome);
+        this.nomeFull = new ArrayList(nome);
+        this.sobrenomeFull = new ArrayList(sobrenome);
 
     }
     @NonNull
@@ -54,7 +54,7 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, @SuppressLint("RecyclerView") final int position) {
-       // holder.id_txt.setText(String.valueOf(id.get(position)));
+        holder.id_txt.setText(String.valueOf(id.get(position)));
         holder.nome_txt.setText(String.valueOf(nome.get(position)));
         holder.sobrenome_txt.setText(String.valueOf(sobrenome.get(position)));
         holder.contacto_txt.setText(String.valueOf(contacto.get(position)));
@@ -85,19 +85,19 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
         protected FilterResults performFiltering(CharSequence constraint) {
             ArrayList filteredList = new ArrayList<>();
 
-
             if (constraint == null || constraint.length() == 0){
-                filteredList.addAll(filtered);
+                filteredList.addAll(nomeFull);
             }else {
-                for (int i = 0; i < nome.size() ; i++) {
-                    if (nome.get(i).toString().toLowerCase().contains(constraint.toString().toLowerCase())){
-                        filteredList.add(nome.get(i).toString());
+                for (Object nome : nomeFull){
+                    if (nome.toString().toLowerCase().contains(constraint.toString().toLowerCase())){
+                        filteredList.add(nome);
                     }
                 }
             }
-            FilterResults filterResults = new FilterResults();
-            filterResults.values = filteredList;
-            return filterResults;
+            FilterResults filterResultsNomes = new FilterResults();
+            filterResultsNomes.values = filteredList;
+
+            return filterResultsNomes;
         }
 
         @Override
