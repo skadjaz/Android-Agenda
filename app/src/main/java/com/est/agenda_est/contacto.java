@@ -85,28 +85,7 @@ public class contacto extends AppCompatActivity {
             morada_input.setText(morada);
             contacto_input.setText(contacto);
 
-        }else if (getIntent().hasExtra("id_updated") &&
-                getIntent().hasExtra("nome_updated") &&
-                getIntent().hasExtra("sobrenome_updated") &&
-                getIntent().hasExtra("email_updated") &&
-                getIntent().hasExtra("morada_updated") &&
-                getIntent().hasExtra("contacto_updated")){
-
-            // Getting Data
-            id = getIntent().getStringExtra("id_updated");
-            nome = getIntent().getStringExtra("nome_updated");
-            sobrenome = getIntent().getStringExtra("sobrenome_updated");
-            email = getIntent().getStringExtra("email_updated");
-            morada = getIntent().getStringExtra("morada_updated");
-            contacto = getIntent().getStringExtra("contacto_updated");
-
-            //Setting Data
-            nome_input.setText(nome +' '+ sobrenome);
-            email_input.setText(email);
-            morada_input.setText(morada);
-            contacto_input.setText(contacto);
-
-        } else{
+        }else{
             Toast.makeText(this, "No data", Toast.LENGTH_SHORT).show();
         }
     }

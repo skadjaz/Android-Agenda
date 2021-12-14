@@ -68,7 +68,7 @@
             app:srcCompat="@drawable/ic_home" />
 
         <ImageView
-            android:id="@+id/imageView4"
+            android:id="@+id/goBack"
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_marginStart="80dp"

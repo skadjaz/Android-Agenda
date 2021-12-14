@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.text.TextUtils;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
@@ -47,8 +48,9 @@ public class Database extends SQLiteOpenHelper {
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME);
     }
 
-    void addContacto(String nome, String sobrenome, String email, String morada, int telemovel, boolean digitsOnly){
-        if (digitsOnly){
+    void addContacto(String nome, String sobrenome, String email, String morada, String telemovel){
+        boolean digitsOnly = TextUtils.isDigitsOnly(telemovel);
+        if (digitsOnly && telemovel != null){
             SQLiteDatabase db = this.getWritableDatabase();
             ContentValues cv = new ContentValues();
 
@@ -76,7 +78,6 @@ public class Database extends SQLiteOpenHelper {
             intent.putExtra("sobrenome_added",sobrenome);
             context.startActivity(intent);
         }
-
     }
 
     Cursor readAllData(){
@@ -91,23 +92,40 @@ public class Database extends SQLiteOpenHelper {
         return cursor;
     }
 
-    void updateData(String row_id,String nome, String sobrenome, String email, String morada, int telemovel){
-        SQLiteDatabase db = this.getWritableDatabase();
-        ContentValues cv = new ContentValues();
+    void updateData(String row_id,String nome, String sobrenome, String email, String morada, String telemovel){
 
-        cv.put(COL_NAME,nome);
-        cv.put(COL_SOBRENOME,sobrenome);
-        cv.put(COL_EMAIL,email);
-        cv.put(COL_MORADA,morada);
-        cv.put(COL_TELEFONE,telemovel);
+        boolean digitsOnly = TextUtils.isDigitsOnly(telemovel);
 
-        long result = db.update(TABLE_NAME,cv,"_id=?", new String[]{row_id});
-        
-        if (result == -1){
-            Toast.makeText(context, "Erro ao Actualizar!", Toast.LENGTH_SHORT).show();
+        if (digitsOnly && telemovel != null){
+            SQLiteDatabase db = this.getWritableDatabase();
+            ContentValues cv = new ContentValues();
+
+            cv.put(COL_NAME,nome);
+            cv.put(COL_SOBRENOME,sobrenome);
+            cv.put(COL_EMAIL,email);
+            cv.put(COL_MORADA,morada);
+            cv.put(COL_TELEFONE,telemovel);
+
+            long result = db.update(TABLE_NAME,cv,"_id=?", new String[]{row_id});
+
+            if (result == -1){
+                Intent intent = new Intent(context, UpdateUnsucessfully.class);
+                intent.putExtra("nome_updated",nome);
+                intent.putExtra("sobrenome_updated",sobrenome);
+                context.startActivity(intent);
+            }else{
+                Intent intent = new Intent(context, UpdateSucessfully.class);
+                intent.putExtra("nome_updated",nome);
+                intent.putExtra("sobrenome_updated",sobrenome);
+                context.startActivity(intent);
+            }
         }else {
-            Toast.makeText(context, "Actualizado com Sucesso!", Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(context, UpdateUnsucessfully.class);
+            intent.putExtra("nome_updated",nome);
+            intent.putExtra("sobrenome_updated",sobrenome);
+            context.startActivity(intent);
         }
+
     }
 
     void deleteOneRow(String row_id){

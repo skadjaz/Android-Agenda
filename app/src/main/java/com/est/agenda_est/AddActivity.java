@@ -55,21 +55,13 @@ public class AddActivity extends AppCompatActivity {
                 Database myDB = new Database(AddActivity.this);
                 // Chamar método de adicionar contacto
 
-                boolean digitsOnly = TextUtils.isDigitsOnly(contacto_input.getText());
 
-                if (digitsOnly && contacto_input != null){
-                    myDB.addContacto(nome_input.getText().toString().trim(),
-                            sobrenome_input.getText().toString().trim(),
-                            email_input.getText().toString().trim(),
-                            morada_input.getText().toString().trim(),
-                            Integer.valueOf(contacto_input.getText().toString().trim()), digitsOnly);
-                }else {
-                    myDB.addContacto(nome_input.getText().toString().trim(),
-                            sobrenome_input.getText().toString().trim(),
-                            email_input.getText().toString().trim(),
-                            morada_input.getText().toString().trim(),
-                            0, digitsOnly);
-                }
+                myDB.addContacto(nome_input.getText().toString().trim(),
+                        sobrenome_input.getText().toString().trim(),
+                        email_input.getText().toString().trim(),
+                        morada_input.getText().toString().trim(),
+                        contacto_input.getText().toString().trim());
+
             }
         });
     }

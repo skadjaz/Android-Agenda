@@ -10,6 +10,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Agenda_EST">
         <activity
+            android:name=".UpdateUnsucessfully"
+            android:exported="false" />
+        <activity
+            android:name=".UpdateSucessfully"
+            android:exported="false" />
+        <activity
             android:name=".AddNoSucess"
             android:exported="false" />
         <activity
